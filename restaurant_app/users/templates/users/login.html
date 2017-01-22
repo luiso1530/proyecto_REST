@@ -1,0 +1,15 @@
+<ul> ingreso </ul>
+
+<li><a href="registrar/" > inscribir nuevo usuario </a></li>
+
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+<form action="{% url 'users:ingresar' %}" method="post">
+{% csrf_token %}
+valor inicial
+<input type="text" name="nombre">
+texto inicial
+<input type="text" name="usuario">
+password
+<input type="text" name="password">
+<input type="submit" value="Submit">
