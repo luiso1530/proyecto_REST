@@ -1,0 +1,16 @@
+
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+<form action="{% url 'users:newU' %}" method="post">
+{% csrf_token %}
+nombre
+<input type="text" name="nombre">
+usuario
+<input type="text" name="usuario">
+password
+<input type="text" name="password">
+<input type="submit" value="Submit">
+
+
+
+</form>
