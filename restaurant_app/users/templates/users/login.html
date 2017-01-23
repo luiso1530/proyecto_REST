@@ -1,6 +1,17 @@
+<div class= "page-header">
+
+{% load staticfiles %}
+<titule>login</titule>
+<link rel="stylesheet" type="text/css" href="{% static 'users/style.css' %}" />
+
+</div>
+
+
 <ul> ingreso </ul>
 
 <li><a href="registrar/" > inscribir nuevo usuario </a></li>
+
+<div class="post">
 
 {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
 
@@ -12,4 +23,8 @@
 <input type="text" name="usuario">
 <ul>password</ul>
 <input type="text" name="password">
+<ul></ul>
 <bnt><input type="submit" value="Submit"></bnt>
+
+</form>
+</div>
