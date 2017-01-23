@@ -6,14 +6,16 @@
 
 </div>
 
+<div class= "header">
 
 <ul> ingreso </ul>
 
-<li><a href="registrar/" > inscribir nuevo usuario </a></li>
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+<li><a href="/registrar/" > inscribir nuevo usuario </a></li>
+
+</div>
 
 <div class="post">
-
-{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
 
 <form action="{% url 'users:ingresar' %}" method="post">
 {% csrf_token %}
