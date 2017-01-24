@@ -20,6 +20,10 @@
 	margin-right: 700pt;
     }
 
+.header li{
+	padding-left: 10px;
+}
+
 titule {
 	color: #59302e;
 	font-size: 36pt;

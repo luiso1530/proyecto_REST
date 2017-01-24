@@ -35,6 +35,5 @@ def ingresar(request):
             'error_message': "usuario confirmado",
         })
     else:
-        return render(request, 'users/login.html', {
-        'error_message': "usuario confirmado",
-        })
+        #return render(request, 'users/login.html', {'error_message': "usuario confirmado",})
+        return HttpResponseRedirect(reverse('reservas:restaurantes'))
