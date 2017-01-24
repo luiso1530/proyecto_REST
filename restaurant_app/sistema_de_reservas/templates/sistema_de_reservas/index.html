@@ -3,9 +3,14 @@
       <title>Restaurantes</title>
 	</head>
 	<body>
+	{% if latest_question_list %}
 	    {%for Restaurantes in restaurantes %}
 		  <a href="/sistema/">{{Restaurantes.nombre}}</a><br/>
-{% endfor %}
+	    {% endfor %}
+	{% else %}
+    		<p>no hay restaurantes en lista</p>
+	{% endif %}
+
 	</body>
 </html>
 

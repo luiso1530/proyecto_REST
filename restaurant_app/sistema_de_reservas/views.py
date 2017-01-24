@@ -8,8 +8,8 @@ from django.shortcuts import render_to_response
 def index(request):
     restaurantes = Restaurantes.objects.all()
     context = {'restaurantes':restaurantes}
-    return HttpResponse("hola")
-    #return render(request,'sistema_de_reservas/index.html',context)
+    #return HttpResponse("hola")
+    return render(request,'sistema_de_reservas/index.html',context)
     
 def principal(request):
     opciones="Sistema de Reservaciones"
