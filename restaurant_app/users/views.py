@@ -31,9 +31,17 @@ def ingresar(request):
             'error_message': "usuario no exite.",
         })
         else:
-            return render(request, 'users/login.html', {
-            'error_message': "usuario confirmado",
-        })
+            if(selected_choice.contraseña == request.POST.get("password","")):
+                return HttpResponseRedirect(reverse('reservas:restaurantes'))
+            else:
+               return render(request, 'users/login.html', {
+                'error_message': "contraseña incorrecta",
+            })
     else:
         #return render(request, 'users/login.html', {'error_message': "usuario confirmado",})
-        return HttpResponseRedirect(reverse('reservas:restaurantes'))
+        if(selected_choice.contraseña == request.POST.get("password","")):
+            return HttpResponseRedirect(reverse('reservas:restaurantes'))
+        else:
+           return render(request, 'users/login.html', {
+            'error_message': "contraseña incorrecta",
+        })
