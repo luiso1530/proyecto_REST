@@ -4,7 +4,8 @@
 	</head>
 	<body>
 	    {%for Restaurantes in restaurantes %}
-		  <a href="/sistema/">{{Restaurantes.nombre}}</a><br/>
+		  <a href="{%url 'sistema' Restaurantes.id%}">{{Restaurantes.nombre}}</a><br/>
+		  
 {% endfor %}
 	</body>
 </html>

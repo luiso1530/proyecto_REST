@@ -11,14 +11,28 @@ def index(request):
     return render(request,'sistemareservas/index.html',
                               context)
     
-def principal(request):
-    opciones="Sistema de Reservaciones"
-    #return HttpResponse(opciones)
-    context = {'opciones':opciones}
+def principal(request,pk):
+    opciones = Restaurantes.objects.get(pk=pk)
     return render(request,'sistemareservas/principal.html',
-                              context)
+                              {'opciones':opciones})
 
-def info_restaurante(request):
-    informacion = Restaurantes.objects.all()
+def info_restaurante(request,pk):
+    informacion = Restaurantes.objects.get(pk=pk)
     return render(request,'sistemareservas/info_restaurante.html',
                               {'informacion':informacion})
+
+def mis_reservas(request):
+    reservas = reservaciones.objects.all()
+    return render(request,'sistemareservas/mis_reservas.html',
+                              {'reservas':reservas})
+
+def hora_reserva(request):
+    confirmadas = reservaciones.objects.all()
+    return render(request,'sistemareservas/mis_reservas.html',
+                              {'Reservaciones':confirmadas})
+
+def dia_reserva(request):
+    dia_personas = reservaciones.objects.all()
+    return render(request,'sistemareservas/dia_reserva.html',
+                              {'Dia_personas':dia_personas})
+    

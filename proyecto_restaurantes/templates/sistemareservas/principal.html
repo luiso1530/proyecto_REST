@@ -3,7 +3,9 @@
       <title>System</title>
 	</head>
 	<body>
-	   {%context%}
-	    <a href="/restaurantes/">{{context}}</a><br/>
+	Sistema de reservaciones<br/>
+	    <a href="/restaurantes/">Reservar</a><br/>
+		<a href="{% url 'informacion' opciones.id %}">Informacion del restaurante</a><br/>
+		<a href="/restaurantes/">Mis reservaciones</a><br/>
 	</body>
 </html>
