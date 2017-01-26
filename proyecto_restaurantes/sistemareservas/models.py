@@ -8,20 +8,22 @@ class Restaurantes(models.Model):
     numero_tel = models.IntegerField()
 
     def __str__(self):
-        return self.asunto
+        return self.nombre
     
 class reservaciones(models.Model):
-    
-    Opciones_Horas = (
-        ('1:00 pm', 'una'),
-        ('2:00 pm', 'dos'),
-        ('2:00 pm', 'tres'),
-    )
     cliente = models.CharField(max_length=20)
+    restaurantes = models.ForeignKey(Restaurantes,null = True)
     #fecha = models.ForeignKey()#aqui poner referencia a un modelo de calendario
-    cantidad_personas = models.IntegerField()
-    hora = models.CharField(max_length=1, choices=Opciones_Horas)
+    cantidad_personas = models.CharField(max_length=20)
+    dia = models.CharField(max_length=20)
 
+    def __str__(self):
+        return self.cantidad_personas
+    def __str__(self):
+        return self.cliente
+    def __str__(self):
+        return self.dia
+    
 
 
 

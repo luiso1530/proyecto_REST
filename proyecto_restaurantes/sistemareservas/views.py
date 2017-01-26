@@ -27,12 +27,12 @@ def mis_reservas(request):
                               {'reservas':reservas})
 
 def hora_reserva(request):
-    confirmadas = reservaciones.objects.all()
-    return render(request,'sistemareservas/mis_reservas.html',
-                              {'Reservaciones':confirmadas})
+    #confirmadas = reservaciones.objects.get(pk=pk)
+    D = reservaciones(cantidad_personas= request.POST.get("cantidad",""),dia =request.POST.get("dia",""))
+    D.save()
+    return render(request,'sistemareservas/hora_reserva.html',
+                              {'Confirmadas':D})
 
-def dia_reserva(request):
-    dia_personas = reservaciones.objects.all()
-    return render(request,'sistemareservas/dia_reserva.html',
-                              {'Dia_personas':dia_personas})
+def dia_reserva(request,pk):
+    return render(request,'sistemareservas/dia_reserva.html')
     
