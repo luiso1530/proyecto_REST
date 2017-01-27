@@ -4,15 +4,10 @@
 	</head>
 	<body>
 	Escoger dia y numero de personas<br/>
-	<form action="{% url 'hora_reserva' %}" method="post">
+	<form action="{% url 'hora_reserva' rest.id %}" method="post">
 {% csrf_token %}
-Dia de la semana
-<select name="dia">
-  <option value="lunes">lunes</option>
-  <option value="martes">martes</option>
-  <option value="miercoles">miercoles</option>
-  <option value="jueves">jueves</option>
-</select>
+Fecha: 
+<input type="date" name="fecha"><br>
 Numero de personas
 <select name="cantidad">
   <option value="1">1</option>
@@ -25,5 +20,7 @@ Numero de personas
 
 
 </form> 
+
+
 	</body>
 </html>

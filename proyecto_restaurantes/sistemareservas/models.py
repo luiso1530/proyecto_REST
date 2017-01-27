@@ -12,10 +12,10 @@ class Restaurantes(models.Model):
     
 class reservaciones(models.Model):
     cliente = models.CharField(max_length=20)
-    restaurantes = models.ForeignKey(Restaurantes,null = True)
-    #fecha = models.ForeignKey()#aqui poner referencia a un modelo de calendario
+    restaurantes = models.CharField(max_length=20)
+    hora = models.CharField(max_length=20)#aqui poner referencia a un modelo de calendario
     cantidad_personas = models.CharField(max_length=20)
-    dia = models.CharField(max_length=20)
+    dia = models.DateField()
 
     def __str__(self):
         return self.cantidad_personas
