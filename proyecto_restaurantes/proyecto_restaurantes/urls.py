@@ -25,5 +25,6 @@ urlpatterns = [
     url(r'^mis_reservas/$', views.mis_reservas, name='mis_reservas'),
     url(r'^(?P<pk>[0-9]+)/hora_reserva/$', views.hora_reserva, name='hora_reserva'),
     url(r'^(?P<pk>[0-9]+)/dia_reserva/$', views.dia_reserva, name='dia_reserva'),
+    url(r'^(?P<pk>[0-9]+)/final/$', views.final, name='final'),
     
 ]
