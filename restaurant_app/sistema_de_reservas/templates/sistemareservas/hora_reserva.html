@@ -1,0 +1,31 @@
+<html>
+   <head>
+      <title>informacion de restaurante</title>
+	</head>
+	<body>
+Escoja la hora:<br/>
+	<form action="/usuario/final/{{D.id}}/{{usuario.id}}/" method="post">
+{% csrf_token %}
+Horas: <br/>
+<select name="hora">
+{%if D.id == 500%}
+  <option type="text" value="11:00am">11</option>
+{%endif%}
+  <option type="text" value="1:00pm">1</option>
+  <option type="text" value="3:00pm">3</option>
+  <option type="text" value="7:00pm">7</option>
+</select>
+<input type="submit" value="Submit">
+</form> 
+<br/>
+<br/>
+Lista de reservaciones para la fecha seleccionada<br/>
+	     {%for confirmadas in Confirmadas %}
+		  {{confirmadas.id}}<br/>
+		  {{confirmadas.cantidad_personas}}
+		  {{confirmadas.dia}}<br/>
+		  {{confirmadas.hora}}<br/>
+		  {{confirmadas.restaurantes}}
+{% endfor %}
+	</body>
+</html>

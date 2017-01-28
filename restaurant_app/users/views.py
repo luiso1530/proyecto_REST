@@ -27,12 +27,18 @@ def ingresar(request):
         try:
             selected_choice = usuario.objects.get(user = request.POST.get("usuario",""))
         except (KeyError, usuario.DoesNotExist):
-            return render(request, 'users/login.html', {
-            'error_message': "usuario no exite.",
-        })
+            try:
+                selected_choice = owner.objects.get(user = request.POST.get("usuario",""))
+            except (KeyError, owner.DoesNotExist):
+                return render(request, 'users/login.html', {
+                    'error_message': "usuario no exite.",
+                })
+            else:
+                return HttpResponseRedirect(reverse('owner:principal', args = (selected_choice.user,)))
+        
         else:
             if(selected_choice.contraseña == request.POST.get("password","")):
-                return HttpResponseRedirect(reverse('reservas:restaurantes'))
+                return HttpResponseRedirect(reverse('reservas:restaurantes', args = (selected_choice.user,)))
             else:
                return render(request, 'users/login.html', {
                 'error_message': "contraseña incorrecta",
@@ -40,7 +46,7 @@ def ingresar(request):
     else:
         #return render(request, 'users/login.html', {'error_message': "usuario confirmado",})
         if(selected_choice.contraseña == request.POST.get("password","")):
-            return HttpResponseRedirect(reverse('reservas:restaurantes'))
+            return HttpResponseRedirect(reverse('reservas:restaurantes', args = (selected_choice.user,)))
         else:
            return render(request, 'users/login.html', {
             'error_message': "contraseña incorrecta",

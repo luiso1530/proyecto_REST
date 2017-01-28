@@ -1,0 +1,7 @@
+<h1>{{solicitudes}}</h1>
+
+<ul>
+{% for choice in peticion %}
+<li><a href ="/owner/{{own.user}}/solicitud/{{choice.id}}/">{{choice.dia}} {{choice.hora}}</a></li>
+{% endfor %}
+</ul>

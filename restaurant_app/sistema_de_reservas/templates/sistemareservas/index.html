@@ -4,7 +4,7 @@
 	</head>
 	<body>
 	    {%for Restaurantes in restaurantes %}
-		  <a href="{%url 'reservas:sistema' Restaurantes.id%}">{{Restaurantes.nombre}}</a><br/>
+		  <a href="/usuario/sistema/{{usuario.user}}/{{Restaurantes.id}}/">{{Restaurantes.nombre}}</a><br/>
 		  
 {% endfor %}
 	</body>
