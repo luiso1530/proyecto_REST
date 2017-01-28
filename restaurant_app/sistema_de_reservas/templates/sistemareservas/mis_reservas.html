@@ -1,0 +1,7 @@
+<h1> citas de {{opciones.nombre}} </h1>
+
+<ul>
+  {% for question in reservas %}
+    <li> <a href="/usuario/reserva/{{question.cliente}}/{{opciones.id}}/{{question.id}}/" > {{ question.dia }} {{ question.hora }}</a></li>
+  {% endfor %}
+</ul>

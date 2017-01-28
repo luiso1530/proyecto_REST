@@ -24,15 +24,26 @@ def info_restaurante(request,pk):
     return render(request,'sistemareservas/info_restaurante.html',
                               {'informacion':informacion})
 
-def mis_reservas(request):
-    reservas = reservaciones.objects.all()
+def mis_reservas(request, user , pk):
+    opciones = Restaurantes.objects.get(pk=pk)
+    use = usuario.objects.get(user=user)
+    reservas = reservaciones.objects.filter(cliente = use.user)
+    rest = reservas.order_by('-dia','-hora')
     return render(request,'sistemareservas/mis_reservas.html',
-                              {'reservas':reservas})
+                              {'opciones':opciones , 'reservas':rest})
+
+def reserva(request, user, pk , ident):
+    use = usuario.objects.get(user=user)
+    rest=Restaurantes.objects.get(pk=pk)
+    reservas = reservaciones.objects.get(pk=ident)
+    context={'usuario':use,'restaurante':rest,'reserva':reservas}
+    return render(request,'sistemareservas/reserva.html',
+                              context)
 
 def hora_reserva(request,user,pk):
     use = usuario.objects.get(user=user)
     rest=Restaurantes.objects.get(pk=pk)
-    D = reservaciones(cliente= use.nombre,
+    D = reservaciones(cliente= use.user,
                       cantidad_personas= request.POST.get("cantidad",""),
                       dia =request.POST.get("fecha",""),
                       restaurantes=rest.nombre)

@@ -6,6 +6,6 @@
 	Sistema de reservaciones<br/>
 	    <a href="/usuario/dia_reserva/{{usuario.user}}/{{opciones.id}}">Reservar</a><br/>
 		<a href="{% url 'reservas:informacion' opciones.id %}">Informacion del restaurante</a><br/>
-		<a href="/restaurantes/">Mis reservaciones</a><br/>
+		<a href="/usuario/mis_reservas/{{usuario.user}}/{{opciones.id}}/">Mis reservaciones</a><br/>
 	</body>
 </html>
