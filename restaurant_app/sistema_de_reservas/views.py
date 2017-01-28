@@ -27,7 +27,7 @@ def info_restaurante(request,pk):
 def mis_reservas(request, user , pk):
     opciones = Restaurantes.objects.get(pk=pk)
     use = usuario.objects.get(user=user)
-    reservas = reservaciones.objects.filter(cliente = use.user)
+    reservas = reservaciones.objects.filter(cliente = use.user, restaurantes =opciones.nombre)
     rest = reservas.order_by('-dia','-hora')
     return render(request,'sistemareservas/mis_reservas.html',
                               {'opciones':opciones , 'reservas':rest})

@@ -24,4 +24,9 @@ def peticiones(request, own):
     rest = Restaurantes.objects.get(pk = o.restaurante)
     peticiones = reservaciones.objects.filter(restaurantes = rest.nombre)
     output = peticiones.order_by('-dia')
-    return render(request, 'owner/peticiones.html', {'peticion': output,})
+    return render(request, 'owner/peticiones.html', {'peticion': output,'own':o})
+
+def solicitudes(request,own,pk):
+    o = owner.objects.get(user = own)
+    peticiones = reservaciones.objects.get(pk=pk)
+    return render(request, 'owner/peticion.html', {'peticion': peticiones,'own':o})
