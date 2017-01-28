@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils import timezone
+from django.utils import timezone
 import datetime
 
 class Restaurantes(models.Model):
@@ -12,10 +13,10 @@ class Restaurantes(models.Model):
     
 class reservaciones(models.Model):
     cliente = models.CharField(max_length=20)
-    restaurantes = models.CharField(max_length=20, default = " ")
-    hora = models.CharField(max_length=20)#aqui poner referencia a un modelo de calendario
+    restaurantes = models.CharField(max_length=20)
+    hora = models.CharField(max_length=20, default = "00:00")#aqui poner referencia a un modelo de calendario
     cantidad_personas = models.CharField(max_length=20)
-    dia = models.DateTimeField(blank=True, null=True)
+    dia = models.DateField(default = timezone.now())
 
     def __str__(self):
         return self.cantidad_personas

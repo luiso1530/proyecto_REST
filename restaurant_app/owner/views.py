@@ -18,3 +18,10 @@ def principal(request, own):
     return render(request, 'owner/principal.html', context)
     #template = loader.get_template('owner/principal.html')
     #return HttpResponse(template.render(context,restaurante, request))
+
+def peticiones(request, own):
+    o = owner.objects.get(user = own)
+    rest = Restaurantes.objects.get(pk = o.restaurante)
+    output = reservaciones.objects.all()
+    #output = peticiones.order_by('-dia')
+    return render(request, 'owner/peticiones.html', {'peticion': output,})

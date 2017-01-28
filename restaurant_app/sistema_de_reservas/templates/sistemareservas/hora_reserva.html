@@ -4,11 +4,13 @@
 	</head>
 	<body>
 Escoja la hora:<br/>
-	<form action="{% url 'reservas:hora_reserva' rest.id %}" method="post">
+	<form action="/usuario/final/{{D.id}}/{{usuario.id}}/" method="post">
 {% csrf_token %}
 Horas: <br/>
 <select name="hora">
+{%if D.id == 500%}
   <option type="text" value="11:00am">11</option>
+{%endif%}
   <option type="text" value="1:00pm">1</option>
   <option type="text" value="3:00pm">3</option>
   <option type="text" value="7:00pm">7</option>

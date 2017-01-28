@@ -1,40 +1,57 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from .models import Restaurantes,reservaciones
+from users.models import usuario,owner
+from sistema_de_reservas.models import Restaurantes,reservaciones
 from django.shortcuts import render_to_response
 
 # Create your views here.
 
-def index(request):
+def index(request, user):
+    use = usuario.objects.get(user=user)
     restaurantes = Restaurantes.objects.all()
-    context = {'restaurantes':restaurantes}
-    return render(request,'sistema_de_reservas/index.html',
+    context = {'restaurantes':restaurantes, 'usuario':use}
+    return render(request,'sistemareservas/index.html',
                               context)
     
-def principal(request,pk):
+def principal(request,user,pk):
+    use = usuario.objects.get(user=user)
     opciones = Restaurantes.objects.get(pk=pk)
-    return render(request,'sistema_de_reservas/principal.html',
-                              {'opciones':opciones})
+    return render(request,'sistemareservas/principal.html',
+                              {'opciones':opciones, 'usuario':use})
 
 def info_restaurante(request,pk):
     informacion = Restaurantes.objects.get(pk=pk)
-    return render(request,'sistema_de_reservas/info_restaurante.html',
+    return render(request,'sistemareservas/info_restaurante.html',
                               {'informacion':informacion})
 
 def mis_reservas(request):
     reservas = reservaciones.objects.all()
-    return render(request,'sistema_de_reservas/mis_reservas.html',
+    return render(request,'sistemareservas/mis_reservas.html',
                               {'reservas':reservas})
 
-def hora_reserva(request,pk):
+def hora_reserva(request,user,pk):
+    use = usuario.objects.get(user=user)
     rest=Restaurantes.objects.get(pk=pk)
-    D = reservaciones(cantidad_personas= request.POST.get("cantidad",""),dia =request.POST.get("fecha",""),hora=request.POST.get("hora",""),restaurantes=rest.nombre)
+    D = reservaciones(cliente= use.nombre,
+                      cantidad_personas= request.POST.get("cantidad",""),
+                      dia =request.POST.get("fecha",""),
+                      restaurantes=rest.nombre)
     D.save()
     confirmadas = reservaciones.objects.filter(cantidad_personas=D.cantidad_personas)
-    return render(request,'sistema_de_reservas/hora_reserva.html',
-                              {'Confirmadas':confirmadas,'rest':rest})
+    return render(request,'sistemareservas/hora_reserva.html',
+                              {'Confirmadas':confirmadas,'usuario':use,'D':D})
 
-def dia_reserva(request,pk):
+def dia_reserva(request,user,pk):
+    use = usuario.objects.get(user=user)
     r=Restaurantes.objects.get(pk=pk)
-    return render(request,'sistema_de_reservas/dia_reserva.html',
-                  {'rest':r})
+    return render(request,'sistemareservas/dia_reserva.html',
+                  {'rest':r, 'usuario':use})
+
+def final(request,ident,pk):
+    r=usuario.objects.get(pk=pk)
+    reserva=reservaciones.objects.get(pk=ident)
+    D=request.POST.get("hora","")
+    reserva.hora=D
+    reserva.save()
+    return render(request,'sistemareservas/final.html',{'D':D, 'rest':r})
+    

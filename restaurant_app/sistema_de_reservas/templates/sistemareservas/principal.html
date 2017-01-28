@@ -4,8 +4,8 @@
 	</head>
 	<body>
 	Sistema de reservaciones<br/>
-	    <a href="{% url 'reservas:dia_reserva' opciones.id %}">Reservar</a><br/>
+	    <a href="/usuario/dia_reserva/{{usuario.user}}/{{opciones.id}}">Reservar</a><br/>
 		<a href="{% url 'reservas:informacion' opciones.id %}">Informacion del restaurante</a><br/>
-		<a href="{% url 'reservas:restaurantes'%}"">Mis reservaciones</a><br/>
+		<a href="/restaurantes/">Mis reservaciones</a><br/>
 	</body>
 </html>

@@ -4,10 +4,10 @@
 	</head>
 	<body>
 	Escoger dia y numero de personas<br/>
-	<form action="{% url 'reservas:hora_reserva' rest.id %}" method="post">
+	<form action="/usuario/hora_reserva/{{usuario.user}}/{{rest.id}}/" method="post">
 {% csrf_token %}
 Fecha: 
-<input type="date" name="fecha" format="YYYY-MM-DD"><br>
+<input type="date" name="fecha"><br>
 Numero de personas
 <select name="cantidad">
   <option value="1">1</option>
