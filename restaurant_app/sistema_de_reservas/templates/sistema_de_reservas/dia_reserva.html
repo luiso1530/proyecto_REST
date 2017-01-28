@@ -1,0 +1,26 @@
+<html>
+   <head>
+      <title> Dia de reservaciones</title>
+	</head>
+	<body>
+	Escoger dia y numero de personas<br/>
+	<form action="{% url 'reservas:hora_reserva' rest.id %}" method="post">
+{% csrf_token %}
+Fecha: 
+<input type="date" name="fecha" format="YYYY-MM-DD"><br>
+Numero de personas
+<select name="cantidad">
+  <option value="1">1</option>
+  <option value="2">2</option>
+  <option value="3">3</option>
+  <option value="4">4</option>
+</select>
+<input type="submit" value="Submit">
+
+
+
+</form> 
+
+
+	</body>
+</html>
