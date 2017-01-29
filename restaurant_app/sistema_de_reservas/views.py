@@ -58,10 +58,16 @@ def dia_reserva(request,user,pk):
     Y=ahora.year
     m=ahora.month
     d=ahora.day
-    if(d>10):
-        minimo="%d-0%d-%d"%(Y,m,d)
+    if(d<10):
+        if(m<10):
+            minimo="0%d-0%d-%d"%(Y,m,d)
+        else:
+            minimo="0%d-%d-%d"%(Y,m,d)
     else:
-        minimo="%d-%d-%d"%(Y,m,d)
+        if(m<10):
+            minimo="%d-0%d-%d"%(Y,m,d)
+        else:
+            minimo="%d-%d-%d"%(Y,m,d)
     if d>28:
         Md=28
     else:
@@ -72,10 +78,16 @@ def dia_reserva(request,user,pk):
     else:
         Mm=m+1
         My=Y
-    if(d>10):
-        Maximo="%d-0%d-%d"%(My,Mm,Md)
+    if(d<10):
+        if(m<10):
+            Maximo="0%d-0%d-%d"%(My,Mm,Md)
+        else:
+            Maximo="0%d-%d-%d"%(My,Mm,Md)
     else:
-        Maximo="%d-%d-%d"%(My,Mm,Md)
+        if(m<10):
+            Maximo="%d-0%d-%d"%(My,Mm,Md)
+        else:
+            Maximo="%d-%d-%d"%(My,Mm,Md)
     use = usuario.objects.get(user=user)
     r=Restaurantes.objects.get(pk=pk)
     return render(request,'sistemareservas/dia_reserva.html',
