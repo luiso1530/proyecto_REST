@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from users.models import usuario,owner
 from sistema_de_reservas.models import Restaurantes,reservaciones
 from django.shortcuts import render_to_response
+import datetime
 
 # Create your views here.
 
@@ -53,10 +54,32 @@ def hora_reserva(request,user,pk):
                               {'Confirmadas':confirmadas,'usuario':use,'D':D})
 
 def dia_reserva(request,user,pk):
+    ahora = datetime.datetime.now()
+    Y=ahora.year
+    m=ahora.month
+    d=ahora.day
+    if(d>10):
+        minimo="%d-0%d-%d"%(Y,m,d)
+    else:
+        minimo="%d-%d-%d"%(Y,m,d)
+    if d>28:
+        Md=28
+    else:
+        Md=d
+    if d==12:
+        Mm=1
+        My=Y+1
+    else:
+        Mm=m+1
+        My=Y
+    if(d>10):
+        Maximo="%d-0%d-%d"%(My,Mm,Md)
+    else:
+        Maximo="%d-%d-%d"%(My,Mm,Md)
     use = usuario.objects.get(user=user)
     r=Restaurantes.objects.get(pk=pk)
     return render(request,'sistemareservas/dia_reserva.html',
-                  {'rest':r, 'usuario':use})
+                  {'rest':r, 'usuario':use,'fecmin':minimo,'fecmax':Maximo})
 
 def final(request,ident,pk):
     r=usuario.objects.get(pk=pk)
