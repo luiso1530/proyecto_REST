@@ -1,4 +1,11 @@
-<li>{{restaurante.nombre}}</li>
-<li>{{usuario.nombre}}</li>
+<h1>restaurante {{restaurante.nombre}}</h1>
+<h2>usuario {{usuario.nombre}}</h2>
 
-<a href="{%url 'owner:peticiones' usuario.user%}"> ver mis peticiones </a>
+<li>opciones</li>
+<li><a href="{%url 'owner:peticiones' usuario.user%}"> ver mis peticiones </a></li>
+<form action="/owner/{{usuario.user}}/solicitud_fecha/" method="post">
+{% csrf_token %}
+<li>Ver solicitude de la fecha:
+<input type="date" name="fecha" min = {{fecmin}} value = {{fecmin}}></li>
+<input type="submit" value="Submit">
+</form>
