@@ -2,6 +2,8 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from users.models import usuario,owner
 from sistema_de_reservas.models import Restaurantes,reservaciones
+from django.http import HttpResponseRedirect, HttpResponse
+from django.urls import reverse
 from django.shortcuts import render_to_response
 import datetime
 
@@ -40,6 +42,13 @@ def reserva(request, user, pk , ident):
     context={'usuario':use,'restaurante':rest,'reserva':reservas}
     return render(request,'sistemareservas/reserva.html',
                               context)
+
+def delete_reserva(request, user, pk , ident):
+    use = usuario.objects.get(user=user)
+    rest=Restaurantes.objects.get(pk=pk)
+    reservas = reservaciones.objects.get(pk=ident)
+    reservas.delete()
+    return HttpResponseRedirect(reverse('reservas:restaurantes', kwargs={'user':use.user}))
 
 def hora_reserva(request,user,pk):
     use = usuario.objects.get(user=user)

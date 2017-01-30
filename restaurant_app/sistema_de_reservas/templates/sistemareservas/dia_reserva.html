@@ -7,7 +7,7 @@
 	<form action="/usuario/hora_reserva/{{usuario.user}}/{{rest.id}}/" method="post">
 {% csrf_token %}
 Fecha: 
-<input type="date" name="fecha" min = {{fecmin}} max= {{fecmax }}><br>
+<input type="date" name="fecha" min = {{fecmin}} max= {{fecmax }} value = {{fecmin}}><br>
 {{fecha}}
 Numero de personas
 <select name="cantidad">
