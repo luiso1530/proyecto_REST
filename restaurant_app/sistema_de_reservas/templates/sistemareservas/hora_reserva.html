@@ -3,8 +3,8 @@
       <title>informacion de restaurante</title>
 	</head>
 	<body>
-Escoja la hora:<br/>
-	<form action="/usuario/final/{{D.id}}/{{usuario.id}}/" method="post">
+Escoja la hora:{{rest.nombre}}<br/>
+	<form action="/usuario/final/{{rest.id}}/{{usuario.id}}/" method="post">
 {% csrf_token %}
 Horas: <br/>
 <select name="hora">
@@ -15,6 +15,10 @@ Horas: <br/>
   <option type="text" value="3:00pm">3</option>
   <option type="text" value="7:00pm">7</option>
 </select>
+<input type="hidden" value="{{cantidad_personas}}" name="cantidad">
+<input type="hidden" value="{{cliente}}" name="cliente">
+<input type="hidden" value="{{dia}}" name="dia">
+<input type="hidden" value="{{restaurantes}}" name="restaurantes">
 <input type="submit" value="Submit">
 </form> 
 <br/>

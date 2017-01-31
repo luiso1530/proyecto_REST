@@ -53,14 +53,18 @@ def delete_reserva(request, user, pk , ident):
 def hora_reserva(request,user,pk):
     use = usuario.objects.get(user=user)
     rest=Restaurantes.objects.get(pk=pk)
-    D = reservaciones(cliente= use.user,
-                      cantidad_personas= request.POST.get("cantidad",""),
-                      dia =request.POST.get("fecha",""),
-                      restaurantes=rest.nombre)
-    D.save()
-    confirmadas = reservaciones.objects.filter(cantidad_personas=D.cantidad_personas)
+    #D = reservaciones(cliente= use.user,
+    #                  cantidad_personas= request.POST.get("cantidad",""),
+    #                  dia =request.POST.get("fecha",""),
+    #                  restaurantes=rest.nombre)
+    #D.save()
+    cliente= use.user
+    cantidad_personas= request.POST.get("cantidad","")
+    dia =request.POST.get("fecha","")
+    restaurantes=rest.nombre
+    confirmadas = reservaciones.objects.filter(cantidad_personas=cantidad_personas)
     return render(request,'sistemareservas/hora_reserva.html',
-                              {'Confirmadas':confirmadas,'usuario':use,'D':D})
+                              {'Confirmadas':confirmadas,'rest':rest,'usuario':use,'cliente':cliente,'cantidad_personas':cantidad_personas,'dia':dia,' restaurantes': restaurantes})
 
 def dia_reserva(request,user,pk):
     ahora = datetime.datetime.now()
@@ -104,9 +108,18 @@ def dia_reserva(request,user,pk):
 
 def final(request,ident,pk):
     r=usuario.objects.get(pk=pk)
-    reserva=reservaciones.objects.get(pk=ident)
-    D=request.POST.get("hora","")
-    reserva.hora=D
-    reserva.save()
-    return render(request,'sistemareservas/final.html',{'D':D, 'rest':r})
+    #reserva=reservaciones.objects.get(pk=ident)
+    reserva=Restaurantes.objects.get(pk=ident)
+    hora=request.POST.get("hora","")
+    cantidad=request.POST.get("cantidad","")
+    cliente=request.POST.get("cliente","")
+    dia=request.POST.get("dia","")
+    restaurantes=request.POST.get("restaurantes","")
+    D = reservaciones(cliente= cliente,
+                      cantidad_personas= cantidad,
+                      dia =dia,
+                      restaurantes=reserva.nombre,
+                      hora=hora)
+    D.save()
+    return render(request,'sistemareservas/final.html',{'D':D,'rest':r})
     
