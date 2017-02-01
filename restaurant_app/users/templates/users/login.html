@@ -1,12 +1,13 @@
 <div class= "page-header">
 
 {% load staticfiles %}
-<head><title>login</title></head>
-<link rel="stylesheet" type="text/css" href="{% static 'users/style.css' %}" />
+<title>login</title>
+<head><h1>login</h1></head>
+<link rel="stylesheet" type="text/css" href="{% static 'users/login.css' %}" />
 
 </div>
 
-<div class= "header">
+<div class= "lateral">
 
 <li> ingreso </li>
 {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
@@ -29,3 +30,8 @@
 
 </form>
 </div>
+
+<div class="caja1"></div>
+<div class="caja2"></div>
+<div class="caja3"></div>
+<div class="caja4"></div>

@@ -1,0 +1,64 @@
+
+.page-header{
+	z-index:2;
+	position:absolute;
+	top: 140px;
+	left:700px;
+}
+
+.lateral {
+	z-index:2;
+        font-size: 15pt;
+	color: #C5C3DD;
+	position:absolute;
+	top: 200px;
+	left:390px;
+}
+
+.post{
+	z-index:2;
+	position:absolute;
+	top: 200px;
+	left:650px;
+}
+
+.caja1{
+	z-index:1;
+	padding: 130 120 200 120px;
+	overflow: hidden;
+	background-color: #484195; 
+	position:absolute;
+	top: 150px;
+	left:380px;
+}
+
+.caja2{
+	z-index:1;
+	padding: 10 100 70 130px;
+	overflow: hidden;
+	background-color: #3D31C0; 
+	position:absolute;
+	top: 150px;
+	left:620px;
+}
+
+.caja3{
+	z-index:1;
+	padding: 130 100 150 130px;
+	overflow: hidden;
+	background-color: #D2CAFF; 
+	position:absolute;
+	top: 200px;
+	left:620px;
+}
+
+.caja4{
+
+	z-index:0;
+	padding: 190 500 500 764px;
+	overflow: hidden;
+	background-color: #0D083D; 
+	position:absolute;
+	top: 0px;
+	left:0px;
+}
