@@ -1,12 +1,27 @@
-<div class= "page-header">
+<!DOCTYPE html>
+<html lang="en">
+<head>
 
-{% load staticfiles %}
-<title>login</title>
-<head><h1>login</h1></head>
-<link rel="stylesheet" type="text/css" href="{% static 'users/login.css' %}" />
+  <div class="page-header">
+  <title>Login</title>
+     <h2>login</h2>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  {% load staticfiles %}
+  <link rel="stylesheet" type="text/css" href="{% static 'users/login.css' %}" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
 
+<div class="caja1"></div>
+<div class="caja2"></div>
+<div class="caja3"></div>
+<div class="caja4"></div>
 </div>
 
+
+<body>
 <div class= "lateral">
 
 <li> ingreso </li>
@@ -17,21 +32,32 @@
 
 <div class="post">
 
+<div class= "col-xs-6" style="background-color:lavenderblush;">
 <form action="{% url 'users:ingresar' %}" method="post">
 {% csrf_token %}
 <ul>nombre</ul>
-<input type="text" name="nombre">
+<div class="input-group">
+      <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+      <input id="email" type="text" class="form-control" name="nombre" placeholder="nombre">
+</div>
 <ul>usuario</ul>
-<input type="text" name="usuario">
+<div class="input-group">
+      <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+      <input id="email" type="text" class="form-control" name="usuario" placeholder="usuario">
+</div>
 <ul>password</ul>
-<input type="password" name="password">
+<div class="input-group">
+      <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+      <input id="password" type="password" class="form-control" name="password" placeholder="Password">
+</div>
 <ul></ul>
-<bnt><input type="submit" value="Submit"></bnt>
+<bnt><input type="submit" value="Submit" class="btn btn-default"></bnt>
 
 </form>
 </div>
+</div>
+</body>
 
-<div class="caja1"></div>
-<div class="caja2"></div>
-<div class="caja3"></div>
-<div class="caja4"></div>
+
+
+</html>
