@@ -1,48 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <title>solicitudes</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-</head>
-<body>
+<h1>{{solicitudes}}</h1>
 
-<div class="container">
-  <h2>solicitudes</h2>
-  <p>todas sus solicitudes</p>            
-  <table class="table table-striped">
-    <thead>
-      <tr>
-        <th>usuario</th>
-        <th>fecha</th>
-        <th>hora</th>
-        <th>ver</th>
-      </tr>
-    </thead>
-    <tbody>
-    {% if  peticion %}
-	{% for choice in peticion %}
-      <tr>
-        <td>{{choice.cliente}}</td>
-        <td>{{choice.dia}}</td>
-        <td>{{choice.hora}}</td>
-        <td><a href ="/owner/{{own.user}}/solicitud/{{choice.id}}/">ver</td>
-      </tr>
-    {% endfor %}
-	{% else %}
-      <tr>
-        <td>no hay solicitud</td>
-        <td>no hay solicitud</td>
-        <td>no hay solicitud</td>
-        <td><a href ="/owner/{{own.user}}/">volver al inicio</td>
-      </tr>
-    </tbody>
-    {% endif %}
-  </table>
-</div>
+{% if  peticion %}
+<ul>
+{% for choice in peticion %}
+<li><a href ="/owner/{{own.user}}/solicitud/{{choice.id}}/">{{choice.dia}} {{choice.hora}}</a></li>
+{% endfor %}
+</ul>
 
-</body>
-</html>
+{% else %}
+    <p>No hay reservaciones para este dia</p>
+{% endif %}

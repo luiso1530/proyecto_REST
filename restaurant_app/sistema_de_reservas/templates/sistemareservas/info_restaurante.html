@@ -1,10 +1,31 @@
 <html>
    <head>
       <title>informacion de restaurante</title>
+	  <link href="C:/Users/LuisOrlando/Documents/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
+	  
+	  <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 	</head>
 	<body>
-	Informacion de restaurante<br/>
-	    descripcion : {{informacion.descripcion}}<br/>
-		Numero de telefono : {{informacion.numero_tel}}
+	<nav class="navbar navbar-default">
+	<h1 class="navbar-text">{{informacion.nombre}}</h1><br/>
+	</nav>
+	<div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading">Informacion del restaurante</div>
+
+  <!-- List group -->
+  <ul class="list-group">
+    <li class="list-group-item">Descripcion: {{informacion.descripcion}}</li>
+    <li class="list-group-item">Numero de telefono: {{informacion.numero_tel}}</li>
+    
+  </ul>
+</div>
 	</body>
 </html>
