@@ -1,6 +1,32 @@
-<h1>solicitud del restaurante {{peticion.restaurante}}</h1>
+<html lang="en">
+<head>
+  <title>solicitud del restaurante {{peticion.restaurante}}</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
 
-<li>Peticion del cliente {{peticion.cliente}}</li>
-<li>Dia de la reserva: {{peticion.dia}}</li>
-<li>Hora: {{peticion.hora}}</li>
-<li>Cantidad de personas: {{peticion.cantidad_personas}}</li>
+<div class="container-fluid">
+  <h1>solicitud del restaurante {{peticion.restaurante}}</h1>
+  <p>Datos de la solicitud {{peticion.id}}</p>
+  <div class="row">
+    <div class="col-sm-4" style="background-color:lavender;">
+    <p>Peticion del cliente</p>
+	<p>Dia de la reserva: </p>
+	<p>Hora: </p>
+	<p>Cantidad de personas: </p>
+    </div>
+    <div class="col-sm-8" style="background-color:lavenderblush;">
+    <p> {{peticion.cliente}}</p>
+        <p> {{peticion.dia}}</p>
+        <p> {{peticion.hora}}</p>
+        <p> {{peticion.cantidad_personas}}</p>
+    </div>
+  </div>
+</div>
+    
+</body>
+</html>
