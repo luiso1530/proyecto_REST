@@ -1,9 +1,31 @@
-<h1> reservacion de {{restaurante.nombre}} </h1>
+
+<html>
+   <head>
+      <title>Mis_reservass</title>
+	  <link href="C:/Users/LuisOrlando/Documents/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
+	  
+	  <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	</head>
+	<body>
+	<nav class="navbar navbar-default">
+	<h2 class="navbar-text">{{restaurante.nombre}}</h2>
+	</nav>
+	<h2> Reservacion </h2>
+<ul class="list-group">
+  <li class="list-group-item">Cliente: {{usuario.nombre}}</li>
+  <li class="list-group-item">Fecha: {{reserva.dia}}</li>
+  <li class="list-group-item">hora: {{reserva.hora}}</li>
+</ul>
+<br/>
 
 
-<li> reserva de: {{usuario.nombre}}</li>
-
-<li>dia de reserva :{{reserva.dia}}</li>
-<li>hora de reserva :{{reserva.hora}}</li>
-
-<li><a href = "/usuario/delete/{{usuario.user}}/{{restaurante.id}}/{{reserva.id}}/" > Cancelar esta reserva</a></li>
+<h3><a href = "/usuario/delete/{{usuario.user}}/{{restaurante.id}}/{{reserva.id}}/" > Cancelar esta reserva</a></h3>
+	</body>
+</html>

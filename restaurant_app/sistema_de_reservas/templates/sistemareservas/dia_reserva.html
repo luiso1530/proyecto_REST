@@ -1,22 +1,49 @@
 <html>
    <head>
       <title> Dia de reservaciones</title>
+	  <link href="C:/Users/LuisOrlando/Documents/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
+	  
+	  <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 	</head>
 	<body>
-	Escoger dia entre {{fecmin}} y {{fecmax }} y numero de personas<br/>
+	<nav class="navbar navbar-default">
+	<h1 class="navbar-text">{{rest.nombre}}</h1><br/>
+	</nav>
+	<h3>Proceso de reservacion</h3>
+
 	<form action="/usuario/hora_reserva/{{usuario.user}}/{{rest.id}}/" method="post">
 {% csrf_token %}
-Fecha: 
+<br/>
+Escoger dia entre {{fecmin}} y {{fecmax }} y numero de personas<br/>
+Fecha:
+<div class="input-group">
+<span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
 <input type="date" name="fecha" min = {{fecmin}} max= {{fecmax }} value = {{fecmin}}><br>
+</div>
 {{fecha}}
-Numero de personas
-<select name="cantidad">
+
+<br/>
+
+<div class="form-group">
+<label for="pwd">Numero de personas:</label>
+<span class="form-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+<select name="cantidad" id="pwd">
   <option value="1">1</option>
   <option value="2">2</option>
   <option value="3">3</option>
   <option value="4">4</option>
 </select>
-<input type="submit" value="Submit">
+</div>
+
+<button type="submit" class="btn btn-default"> Submit</button>
+
 
 
 
