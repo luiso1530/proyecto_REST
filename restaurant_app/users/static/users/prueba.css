@@ -1,0 +1,44 @@
+.page-header {
+        background-color: #d99c34;
+        margin-top: 0;
+        padding: 20px 20px 50px 40px;
+    }
+
+.page-header h1, .page-header h1 a, .page-header h1 a:visited, .page-header h1 a:active {
+        color: #ffffff;
+        font-size: 36pt;
+        text-decoration: none;
+    }
+
+.header {
+
+	background-color: #e99c34;
+        margin-top: 0;
+	padding-let: 20px;
+	padding-top: 40px;
+	padding-bottom: 500px;
+	margin-right: 700pt;
+    }
+
+.header li{
+	padding-left: 10px;
+}
+
+titule {
+	color: #59302e;
+	font-size: 36pt;
+	position:absolute;
+	top: 10px;
+	left:200px;
+ }
+
+ul {
+	font-size:20px;
+	padding-left: 0px;
+}	
+
+form{
+	position:absolute;
+	top: 200px;
+	left:700px;
+}

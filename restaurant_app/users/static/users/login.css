@@ -2,9 +2,10 @@
 .page-header{
 	z-index:2;
 	position:absolute;
-	top: 140px;
-	left:700px;
+	top: 135px;
+	left:630px;
 }
+
 
 .lateral {
 	z-index:2;
@@ -57,7 +58,7 @@
 	z-index:0;
 	padding: 190 500 500 764px;
 	overflow: hidden;
-	background-color: #0D083D; 
+	background-color: #0004FF; 
 	position:absolute;
 	top: 0px;
 	left:0px;
