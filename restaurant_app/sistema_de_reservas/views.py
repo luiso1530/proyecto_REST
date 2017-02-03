@@ -73,9 +73,9 @@ def dia_reserva(request,user,pk):
     d=ahora.day
     if(d<10):
         if(m<10):
-            minimo="0%d-0%d-%d"%(Y,m,d)
+            minimo="%d-0%d-0%d"%(Y,m,d)
         else:
-            minimo="0%d-%d-%d"%(Y,m,d)
+            minimo="%d-%d-0%d"%(Y,m,d)
     else:
         if(m<10):
             minimo="%d-0%d-%d"%(Y,m,d)
@@ -93,9 +93,9 @@ def dia_reserva(request,user,pk):
         My=Y
     if(d<10):
         if(m<10):
-            Maximo="0%d-0%d-%d"%(My,Mm,Md)
+            Maximo="%d-0%d-0%d"%(My,Mm,Md)
         else:
-            Maximo="0%d-%d-%d"%(My,Mm,Md)
+            Maximo="%d-%d-0%d"%(My,Mm,Md)
     else:
         if(m<10):
             Maximo="%d-0%d-%d"%(My,Mm,Md)
